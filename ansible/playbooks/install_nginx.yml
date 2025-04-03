@@ -1,0 +1,28 @@
+---
+- name: Configure NGINX on ASG instances
+  hosts: tag_ASG_Instance  
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install NGINX
+      apt:
+        name: nginx
+        state: present
+
+    - name: Customize NGINX welcome page
+      template:
+        src: ../roles/nginx/templates/index.html.j2
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'
+
+    - name: Ensure NGINX is running
+      service:
+        name: nginx
+        state: started
+        enabled: true

@@ -1,0 +1,38 @@
+# Terraform files
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Terraform crash logs
+crash.log
+
+# Terraform variable files (sensitive data)
+*.tfvars
+*.tfvars.json
+
+# SSH keys
+terraform-key
+terraform-key.pub
+
+# Ansible files
+*.retry
+ansible.log
+
+# Python virtual environment (if used with Ansible)
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# General files
+.DS_Store
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+
+# SSH keys
+terraform-key
+terraform-key.pub
